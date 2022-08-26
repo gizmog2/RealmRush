@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1941220719235542355, guid: 446ff151c3e3798468e907c689ffff9d, type: 3}
+      propertyPath: isPlaceable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2797825037397724442, guid: 446ff151c3e3798468e907c689ffff9d, type: 3}
       propertyPath: m_Name
       value: Road_Horizont
