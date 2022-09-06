@@ -1,11 +1,14 @@
-using System.Collections;
+п»їusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMover : MonoBehaviour
 {
     [SerializeField] List<Waypoint> path = new List<Waypoint>();
-    [SerializeField][Range(0, 2)] float speed = 1f;
+	[SerializeField][Range(0, 2)] float speed = 1f;
+    
+	Enemy enemy;
+	
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -15,6 +18,11 @@ public class EnemyMover : MonoBehaviour
         //PrintWaypointName();
         //InvokeRepeating("PrintWaypointName", 0, 1f);
     }
+    
+	void Start()
+	{
+		enemy = GetComponent<Enemy>();
+	}
 
     void FindPath()
     {
@@ -41,7 +49,7 @@ public class EnemyMover : MonoBehaviour
             Vector3 endPosition = waypoint.transform.position;
             float travelPercent = 0f;
 
-            transform.LookAt(endPosition);  // направление в которое смотрит обьект
+            transform.LookAt(endPosition);  // РЎРјРѕС‚СЂРµС‚СЊ РІ РѕРїСЂРµРґРµР»РµРЅРЅРј РЅР°РїСЂР°РІР»РµРЅРёРё. 
 
             while (travelPercent < 1f)
             {
@@ -56,6 +64,7 @@ public class EnemyMover : MonoBehaviour
         }
 
         //Destroy(gameObject);
-        gameObject.SetActive(false);
+	    gameObject.SetActive(false);
+	    enemy.SteelGold();
     }
 }

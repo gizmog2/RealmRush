@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +6,9 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] int maxHitPoints = 5;
-    int currentHitPoints = 0;
+	int currentHitPoints = 0;
+	Enemy enemy;
+    
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -14,6 +16,11 @@ public class EnemyHealth : MonoBehaviour
         //AddRigidbody();
 
     }
+    
+	void Start()
+	{
+		enemy = GetComponent<Enemy>();
+	}
 
     /*private void AddRigidbody()
     {
@@ -30,7 +37,8 @@ public class EnemyHealth : MonoBehaviour
         if (currentHitPoints <= 0)
         {
             //Destroy(gameObject);
-            gameObject.SetActive(false);
+	        gameObject.SetActive(false);
+	        enemy.RewardGold();
         }
     }
 
