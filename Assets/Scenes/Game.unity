@@ -963,6 +963,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 610745279}
+  - component: {fileID: 610745280}
   m_Layer: 0
   m_Name: Bank
   m_TagString: Untagged
@@ -985,6 +986,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &610745280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610745278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21874f003042a8344870f894e35188ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingBalance: 150
+  currentBallance: 0
 --- !u!224 &635265244 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8827766334898660836, guid: 90d12c0fb8d52644a9f441cf00546fd7, type: 3}
