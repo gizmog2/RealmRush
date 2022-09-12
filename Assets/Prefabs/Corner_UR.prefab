@@ -99,6 +99,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Corner_UR
       objectReference: {fileID: 0}
+    - target: {fileID: 2315578676701216233, guid: badb9f5d7a152e849a4381084bc46903, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315578676701216233, guid: badb9f5d7a152e849a4381084bc46903, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.039215688
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315578676701216233, guid: badb9f5d7a152e849a4381084bc46903, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315578676701216233, guid: badb9f5d7a152e849a4381084bc46903, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315578676701216233, guid: badb9f5d7a152e849a4381084bc46903, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278910720
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371498205269211133, guid: badb9f5d7a152e849a4381084bc46903, type: 3}
+      propertyPath: blockedColor.b
+      value: 0.039215688
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371498205269211133, guid: badb9f5d7a152e849a4381084bc46903, type: 3}
+      propertyPath: blockedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371498205269211133, guid: badb9f5d7a152e849a4381084bc46903, type: 3}
+      propertyPath: blockedColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4705081760171268923, guid: badb9f5d7a152e849a4381084bc46903, type: 3}
       propertyPath: m_Mesh
       value: 

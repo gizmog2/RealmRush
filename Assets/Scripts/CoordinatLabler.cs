@@ -9,7 +9,7 @@ using System;
 public class CoordinatLabler : MonoBehaviour
 {
     [SerializeField] Color defaultColor = Color.black;
-    [SerializeField] Color blockedColor = Color.gray;
+    [SerializeField] Color blockedColor = Color.green;
 
     TextMeshPro lable;
     Vector2Int coordinates = new Vector2Int();
@@ -29,8 +29,10 @@ public class CoordinatLabler : MonoBehaviour
         if (!Application.isPlaying)
         {
             DisplayCoordinates();
+            UpdateObjectName();
+            lable.enabled = true;
         }
-        UpdateObjectName();
+        
 
         SetLableColor();
 
