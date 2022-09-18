@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Pathfinding : MonoBehaviour
 {
     [SerializeField] Vector2Int startCoordinates;
-    [SerializeField] Vector2Int destinateCoordinates;
+    [SerializeField] Vector2Int destinationCoordinates;
 
     Node startNode;
     Node destinateNode;
@@ -28,13 +29,16 @@ public class Pathfinding : MonoBehaviour
             grid = gridManager.Grid;
         }
 
-        startNode = new Node(startCoordinates, true);
-        destinateNode = new Node(destinateCoordinates, true);
+        
     }
 
     void Start()
     {
+        startNode = gridManager.Grid[startCoordinates];
+        destinateNode = gridManager.Grid[destinationCoordinates];
+
         BreadthFirstSearch();
+        BuildPath();
     }
 
     void ExploreNeibours()
@@ -55,6 +59,7 @@ public class Pathfinding : MonoBehaviour
         {
             if (!reached.ContainsKey(neighbor.coordinates) && neighbor.isWalkable)
             {
+                neighbor.connectedTo = currentSearchNode;
                 reached.Add(neighbor.coordinates, neighbor);
                 frontier.Enqueue(neighbor);
             }
@@ -73,10 +78,28 @@ public class Pathfinding : MonoBehaviour
             currentSearchNode = frontier.Dequeue();
             currentSearchNode.isExplored = true;
             ExploreNeibours();
-            if (currentSearchNode.coordinates == destinateCoordinates)
+            if (currentSearchNode.coordinates == destinationCoordinates)
             {
                 isRunning = false;
             }
         }
+    }
+    List<Node> BuildPath()
+    {
+        List<Node> path = new List<Node>();
+        Node currentNode = destinateNode;
+
+        path.Add(currentNode);
+        currentNode.isPath = true;
+
+        while (currentNode.connectedTo != null)
+        {
+            currentNode = currentNode.connectedTo;
+            path.Add(currentNode);
+            currentNode.isPath = true;
+        }
+
+        path.Reverse();
+        return path;
     }
 }
