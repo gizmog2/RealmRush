@@ -41,6 +41,7 @@ public class Pathfinding : MonoBehaviour
     void Start()
     {
         GetNewPath();
+        
     }
 
     public List<Node> GetNewPath()
@@ -135,5 +136,9 @@ public class Pathfinding : MonoBehaviour
         }
 
         return false;
+    }
+    public void NotifyReceivers()
+    {
+        BroadcastMessage("RecalculatePath", SendMessageOptions.DontRequireReceiver);
     }
 }

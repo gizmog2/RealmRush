@@ -21,6 +21,7 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
+        pathfinder.NotifyReceivers();
         if (gridManager != null)
         {
             coordinates = gridManager.GetCoordinatesFromPosition(transform.position);
@@ -39,10 +40,13 @@ public class Tile : MonoBehaviour
     {
         if (gridManager.GetNode(coordinates).isWalkable && !pathfinder.WillBlockPath(coordinates))
         {
-            bool isPlaced = towerPrefab.CreateTower(towerPrefab, transform.position);
+            bool isSuccessful = towerPrefab.CreateTower(towerPrefab, transform.position);
             //Instantiate(towerPrefab, transform.position, Quaternion.identity);
-            isPlaceable = !isPlaced;
-            gridManager.BlockNode(coordinates);
+            if (isSuccessful)
+            {
+                gridManager.BlockNode(coordinates);
+                pathfinder.NotifyReceivers();
+            }            
         }
         
     }
