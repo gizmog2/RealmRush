@@ -8,7 +8,10 @@ using UnityEngine;
 public class Pathfinding : MonoBehaviour
 {
     [SerializeField] Vector2Int startCoordinates;
+    public Vector2Int StartCoordinates { get { return startCoordinates; } }
+
     [SerializeField] Vector2Int destinationCoordinates;
+    public Vector2Int DestanationCoordinates { get { return destinationCoordinates; } }
 
     Node startNode;
     Node destinateNode;
@@ -27,6 +30,9 @@ public class Pathfinding : MonoBehaviour
         if (gridManager != null)
         {
             grid = gridManager.Grid;
+            startNode = grid[startCoordinates];
+            destinateNode = grid[destinationCoordinates];
+            
         }
 
         
@@ -34,9 +40,6 @@ public class Pathfinding : MonoBehaviour
 
     void Start()
     {
-        startNode = gridManager.Grid[startCoordinates];
-        destinateNode = gridManager.Grid[destinationCoordinates];
-
         GetNewPath();
     }
 
@@ -74,6 +77,9 @@ public class Pathfinding : MonoBehaviour
 
     void BreadthFirstSearch()
     {
+        startNode.isWalkable = true;
+        destinateNode.isWalkable = true;
+
         frontier.Clear();
         reached.Clear();
 
