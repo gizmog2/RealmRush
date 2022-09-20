@@ -21,7 +21,7 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
-        pathfinder.NotifyReceivers();
+        //pathfinder.NotifyReceivers();
         if (gridManager != null)
         {
             coordinates = gridManager.GetCoordinatesFromPosition(transform.position);
